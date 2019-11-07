@@ -1,0 +1,36 @@
+{% extends('base.html.twig') %}
+{% block title %}Symfony Tutorials!{% endblock %}
+{% block body %}
+	{% include('inc/navber.html.twig') %}
+
+	<h1 class="mt-5">Artile Management</h1>
+	{% if article %}
+	<table class="table table-hover table-bordered">
+	  <thead>
+	    <tr class="table-light">
+	      <th scope="col">ID</th>
+	      <th scope="col">Article Name</th>
+	      <th scope="col">Article Detail</th>
+	      <th scope="col">Action</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{% for row in article %}
+	    <tr>
+	      <th scope="row">{{ row.id }}</th>
+	      <td>{{ row.title }}</td>
+	      <td>{{ row.body }}</td>
+	      <td>
+	      		<a href="/article/{{row.id}}" class="btn btn-info">View</a>
+				<a data-id="{{row.id}}" href="javascript:void(0);" class="btn btn-danger">Danger</a>
+	      </td>
+	    </tr>
+	    {% endfor %}
+	  </tbody>
+	</table> 
+	{% else %}
+
+	<h3>No Record Found</h3>
+	{% endif %}
+
+{% endblock %}
