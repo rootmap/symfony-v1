@@ -1,0 +1,15 @@
+{% extends('base.html.twig') %}
+{% block title %}Edit Article!{% endblock %}
+{% block body %}
+	{% include('inc/navber.html.twig') %}
+
+	<h1 class="mt-5">Edit Article</h1>
+
+
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+
+	<a href="/" class="mt-5"> Go Back </a>
+
+{% endblock %}
